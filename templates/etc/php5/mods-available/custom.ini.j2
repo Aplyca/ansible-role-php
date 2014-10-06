@@ -1,0 +1,18 @@
+; {{ ansible_managed }}
+
+; configuration for php Custom settings
+; priority=90
+
+expose_php = {{ php['expose_php']|default('On') }}
+max_execution_time = {{ php['max_execution_time']|default('30') }}
+max_input_time = {{ php['max_input_time']|default('60') }}
+memory_limit = {{ php['memory_limit']|default('128M') }}
+error_reporting = {{ php['error_reporting']|default('E_ALL & ~E_DEPRECATED & ~E_STRICT') }}
+display_errors = {{ php['display_errors']|default('Off') }}
+display_startup_errors = {{ php['display_startup_errors']|default('Off') }}
+track_errors = {{ php['track_errors']|default('Off') }}
+variables_order = "{{ php['variables_order']|default('GPCS') }}"
+post_max_size = {{ php['post_max_size']|default('8M') }}
+{% if php['Date']['timezone'] is defined %}
+date.timezone = {{ php['Date']['timezone']|default('') }}
+{% endif %}
