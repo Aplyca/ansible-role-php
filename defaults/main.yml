@@ -1,12 +1,11 @@
 ---
 php:
-  packages:
-    - php5
-    - php5-curl
-    - php5-gd
-    - php5-mysql
-    - php5-xsl
-    - php5-intl
+  modules:
+    - curl
+    - gd
+    - mysql
+    - xsl
+    - intl
   expose_php: 'On'
   max_execution_time: '30'
   max_input_time: '60'
@@ -17,3 +16,5 @@ php:
   track_errors: 'Off'
   variables_order: 'GPCS'
   post_max_size: '8M'
+  webserver:
+    present: False

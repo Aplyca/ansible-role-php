@@ -1,0 +1,7 @@
+---
+- name: reload webserver
+  sudo: yes
+  service:
+    name: "{{ apache['service'] }}"
+    state: reloaded
+  when: apache['service'] is defined

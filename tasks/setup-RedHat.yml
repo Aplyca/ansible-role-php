@@ -1,0 +1,27 @@
+---
+#This will install PHP 5.4.x (no OPCache), for PHP 5.5 in CentOS/RedHat see
+#http://unix.stackexchange.com/questions/138019/php-5-5-13-on-centos-6-5-with-yum
+#https://webtatic.com/packages/php55/
+
+- name: Ensure yum packages are updated
+  sudo: yes
+  yum:
+    name: "*"
+    state: latest
+
+- name: Ensure PHP is present using yum
+  sudo: yes
+  yum:
+    name: "{{ php['package'] }}-cli"
+    state: present
+  notify: reload webserver
+  
+- name: Ensure PHP modules are present using yum
+  sudo: yes
+  yum:
+    name: "{{ php['package'] }}-{{ item }}"
+    state: present
+  with_items: php["modules"]
+  notify: reload webserver
+  
+- include: setup.yml  

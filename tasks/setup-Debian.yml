@@ -1,0 +1,26 @@
+---
+- name: Ensure PHP is present using apt
+  sudo: yes
+  apt:
+    name: "{{ php['package'] }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 86400
+  notify: reload webserver
+  
+- name: Ensure PHP modules are present using apt
+  sudo: yes
+  apt:
+    name: "{{ php['package'] }}-{{ item }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 86400
+  with_items: php["modules"]
+  notify: reload webserver
+
+- include: setup.yml
+  
+- name: Enabling custom config in PHP conf
+  sudo: yes
+  command: php5enmod custom
+  changed_when: False
