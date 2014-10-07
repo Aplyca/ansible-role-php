@@ -19,9 +19,9 @@
 - name: Ensure PHP modules are present using yum
   sudo: yes
   yum:
-    name: "{{ php['package'] }}-{{ item }}"
+    name: "{{ item }}"
     state: present
-  with_items: php["modules"]
+  with_items: php['modules']  
   notify: reload webserver
   
 - include: setup.yml  
