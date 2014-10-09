@@ -2,3 +2,7 @@
 php:
   package: php5-cli
   conf_dir: /etc/php5/mods-available 
+
+- include: Ubuntu-lt-14.04.yml
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_version | version_compare('14.04', 'lt')
+  
