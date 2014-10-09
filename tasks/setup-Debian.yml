@@ -7,7 +7,11 @@
     update_cache: yes
     cache_valid_time: 86400
   notify: reload webserver
-  
+
+- debug: var=ansible_distribution
+- debug: var=ansible_distribution_release
+- debug: var=ansible_distribution_version
+
 - name: Ensure PHP modules are present using apt
   sudo: yes
   apt:
