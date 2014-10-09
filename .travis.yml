@@ -33,4 +33,3 @@ script:
 
   # Request a page via Apache, to make sure Apache is running and responds.
   - "php -v"
-  - "php --ini"

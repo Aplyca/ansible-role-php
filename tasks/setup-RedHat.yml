@@ -3,12 +3,6 @@
 #http://unix.stackexchange.com/questions/138019/php-5-5-13-on-centos-6-5-with-yum
 #https://webtatic.com/packages/php55/
 
-- name: Ensure yum packages are updated
-  sudo: yes
-  yum:
-    name: "*"
-    state: latest
-
 - name: Ensure PHP is present using yum
   sudo: yes
   yum:
@@ -19,7 +13,7 @@
 - name: Ensure PHP modules are present using yum
   sudo: yes
   yum:
-    name: "{{ item }}"
+    name: "{{ php['package'] }}-{{ item }}"
     state: present
   with_items: php['modules']  
   notify: reload webserver
