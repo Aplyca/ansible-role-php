@@ -9,8 +9,8 @@ before_install:
   - uname -a
   - cat /proc/version
   - sudo apt-get update -qq
-  - ln -s ../ansible-role-php mauricios.PHP
-  - ls -la
+  - ln -s ../ansible-role-php ../mauricios.PHP
+  - ls -la ../
 
 install:
   - sudo apt-get install -y curl
