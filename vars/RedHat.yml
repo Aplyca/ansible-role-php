@@ -1,5 +1,4 @@
 ---
 php:
-  name: php
   package: php
   conf_dir: /etc/php.d

@@ -1,21 +1,12 @@
 ---
-- name: Ensure PHP is present using apt
-  sudo: yes
-  apt:
-    name: "{{ php['package'] }}-cli"
-    state: present
-    update_cache: yes
-    cache_valid_time: 86400
-  notify: reload webserver
-
 - name: Ensure PHP modules are present using apt
   sudo: yes
   apt:
-    name: "{{ php['package'] }}-{{ item }}"
+    name: "{{ php['package'] }}-{{ item.value }}"
     state: present
     update_cache: yes
     cache_valid_time: 86400
-  with_items: php['modules']
+  with_dict: php['modules']
   notify: reload webserver
 
 - include: setup.yml

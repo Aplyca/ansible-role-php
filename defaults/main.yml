@@ -1,6 +1,7 @@
 ---
 php:
-  modules: []
+  modules:
+    0: cli
   expose_php: 'On'
   max_execution_time: '30'
   max_input_time: '60'
@@ -11,3 +12,5 @@ php:
   track_errors: 'Off'
   variables_order: 'GPCS'
   post_max_size: '8M'
+  Date:
+    timezone: 'America/New_York'
