@@ -1,24 +1,44 @@
-# Ansible Role: PHP
+# Ansible Role: PHP 5.x
 
 [![Build Status](https://travis-ci.org/Aplyca/ansible-role-php.svg?branch=master)](https://travis-ci.org/Aplyca/ansible-role-php)
 
-Ansible Role that installs an configure PHP on Debian/Ubuntu.
+Ansible Role that installs an configure PHP 5.x on Debian/Ubuntu.
 
 ## Requirements
 
-configured ansible.cfg
+Use hash behavior for variables in ansible.cfg
+See example: https://github.com/Aplyca/ansible-role-php/blob/master/tests/ansible.cfg
+See official docs: http://docs.ansible.com/intro_configuration.html#hash-behaviour
+
+## Installation
+
+Using ansible galaxy:
+```bash
+ansible-galaxy install mauricios.PHP
+```
+You can add this role as a dependency for other roles, add the role to the meta/main.yml file of your own role:
+```yaml
+dependencies:
+  - { role: mauricios.PHP }
+```
 
 ## Role Variables
 
-TODO: add variables documentation
+See default variables: https://github.com/Aplyca/ansible-role-php/blob/master/defaults/main.yml
 
 ## Dependencies
 
 None.
 
-## Example Playbook
+## Testing
 
-TODO:Add example playbook
+Use Vagrant to test the role:
+
+```bash
+cd tests;
+vagrant box add ubuntu/trusty64;
+vagrant up;
+```
 
 ## License
 
