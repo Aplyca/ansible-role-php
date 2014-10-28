@@ -1,0 +1,17 @@
+---
+- name: Download composer installer
+  get_url:
+    url: https://getcomposer.org/installer
+    dest: ~/composer_installer.php
+    mode: 0755
+
+- name: Make sure Composer is installed
+  command: php composer_installer.php
+  args:
+    creates: composer.phar
+
+- name: Make sure Composer is installed globally
+  sudo: yes
+  command: cp composer.phar /usr/bin/composer
+  args:
+    creates: /usr/bin/composer

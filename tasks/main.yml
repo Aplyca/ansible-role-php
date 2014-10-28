@@ -11,3 +11,6 @@
 
 - include: setup-Debian.yml
   when: ansible_os_family == 'Debian' 
+
+- include: setup-Composer.yml
+  when: php['composer']['present']

@@ -15,3 +15,5 @@ php:
   post_max_size: '8M'
   Date:
     timezone: 'America/New_York'
+  composer:
+    present: False
