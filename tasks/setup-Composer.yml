@@ -8,10 +8,12 @@
 - name: Make sure Composer is installed
   command: php composer_installer.php
   args:
+    chdir: "~"
     creates: composer.phar
 
 - name: Make sure Composer is installed globally
   sudo: yes
   command: cp composer.phar /usr/bin/composer
   args:
+    chdir: "~"
     creates: /usr/bin/composer
