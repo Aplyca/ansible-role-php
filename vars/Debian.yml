@@ -1,4 +1,3 @@
 ---
-php:
-  package: php5
-  conf_dir: /etc/php5/mods-available 
+php_package: php5
+php_conf_dir: /etc/php5/mods-available

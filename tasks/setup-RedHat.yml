@@ -1,8 +1,4 @@
 ---
-#This will install PHP 5.4.x (no OPCache), for PHP 5.5 in CentOS/RedHat see
-#http://unix.stackexchange.com/questions/138019/php-5-5-13-on-centos-6-5-with-yum
-#https://webtatic.com/packages/php55/
-  
 - name: Ensure PHP packages repos are present using yum
   sudo: yes
   yum:

@@ -15,5 +15,5 @@
   sudo: yes
   command: cp composer.phar /usr/bin/composer
   args:
-    chdir: "~"
+    chdir: "{{ ansible_env['HOME'] }}"
     creates: /usr/bin/composer
