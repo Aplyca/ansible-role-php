@@ -1,8 +1,7 @@
 ---
-php:
-  repos: []
-  modules:
+php_modules:
     0: cli
+php:
   expose_php: 'On'
   max_execution_time: '30'
   max_input_time: '60'

@@ -4,15 +4,15 @@
   yum:
     name: "{{ item }}"
     state: present
-  with_items: php['repos']
-  when: php['repos'] is defined
+  with_items: php_repos
+  when: php_repos is defined
 
 - name: Ensure PHP modules are present using yum
   sudo: yes
   yum:
-    name: "{{ php['package'] }}-{{ item.value }}"
+    name: "{{ php_package }}-{{ item.value }}"
     state: present
-  with_dict: php['modules']
+  with_dict: php_modules
   notify: reload webserver
   
 - include: setup.yml  

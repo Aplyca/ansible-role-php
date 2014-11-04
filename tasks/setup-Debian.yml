@@ -6,7 +6,7 @@
     state: present
     update_cache: yes
     cache_valid_time: 86400
-  with_dict: php['modules']
+  with_dict: php_modules
   notify: reload webserver
 
 - include: setup.yml
