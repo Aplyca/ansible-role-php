@@ -6,8 +6,6 @@
   include_vars: Ubuntu-lt-14.04.yml
   when: ansible_distribution == "Ubuntu" and ansible_distribution_version | version_compare('14.04', 'lt')
 
-- debug: var=php_modules
-
 - include: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
 
