@@ -1,10 +1,17 @@
 ---
+
+- debug: var=ansible_os_family
+- debug: var=ansible_distribution
+- debug: var=ansible_distribution_version
+
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
 
 - name: Include Ubuntu 12.04 variables.
   include_vars: Ubuntu-lt-14.04.yml
   when: ansible_distribution == "Ubuntu" and ansible_distribution_version | version_compare('14.04', 'lt')
+
+- debug: var=php_conf_dir
 
 - include: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
