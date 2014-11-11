@@ -13,6 +13,7 @@ php:
   track_errors: 'Off'
   variables_order: 'GPCS'
   post_max_size: '8M'
+  upload_max_filesize: '2M'
   Date:
     timezone: 'America/New_York'
   composer:
