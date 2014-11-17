@@ -17,3 +17,10 @@ upload_max_filesize = {{ php['upload_max_filesize']|default('2M') }}
 {% if php['Date'] is defined and php['Date']['timezone'] is defined %}
 date.timezone = {{ php['Date']['timezone']|default('') }}
 {% endif %}
+
+{% if php['opcache'] is defined %}
+[opcache]
+{% for setting, value in php['opcache']|dictsort(true) %}
+opcache.{{ setting }}={{ value }}
+{% endfor %}
+{% endif %}
