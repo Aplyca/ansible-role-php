@@ -16,3 +16,5 @@
   command: php5enmod custom
   changed_when: False
   when: ansible_distribution == "Ubuntu" and ansible_distribution_version | version_compare('14.04', 'ge')
+
+#TODO: set read permissions to session path
