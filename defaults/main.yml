@@ -2,6 +2,7 @@
 php_package: php5
 php_modules:
     0: cli
+    1: ldap
 php:
   expose_php: 'On'
   max_execution_time: '30'
