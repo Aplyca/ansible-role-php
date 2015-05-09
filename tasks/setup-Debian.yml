@@ -10,7 +10,14 @@
   notify: reload webserver
 
 - include: setup.yml
-  
+
+- name: Make PHP modules are enabled
+  sudo: yes
+  command: "php5enmod {{ item.value }}"
+  changed_when: False
+  with_dict: php_modules
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_version | version_compare('14.04', 'ge')
+
 - name: Enabling custom config in PHP conf
   sudo: yes
   command: php5enmod custom
