@@ -17,4 +17,5 @@ php:
   Date:
     timezone: 'America/New_York'
   composer:
-    present: False
+    present: True
+    auth: []

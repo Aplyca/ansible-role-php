@@ -1,8 +1,0 @@
----
-php:
-  modules:
-    10: xsl
-  composer:
-    present: True
-
-

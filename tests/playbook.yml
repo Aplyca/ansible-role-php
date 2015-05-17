@@ -2,5 +2,3 @@
 - hosts: all
   roles:
     - mauricios.PHP
-  vars_files:
-    - "extra-vars.yml"

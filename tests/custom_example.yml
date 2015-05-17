@@ -1,0 +1,14 @@
+---
+php:
+  modules:
+    10: xsl
+  composer:
+    auth:
+      - type: "github-oauth"
+        hostname: "github.com"
+        username: "OAuthToken"
+        password: ""
+      - type: "http-basic"
+        hostname: "protected.example.com"
+        username: "Username"
+        password: "Password"

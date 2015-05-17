@@ -17,3 +17,9 @@
   args:
     chdir: "{{ ansible_env['HOME'] }}"
     creates: /usr/bin/composer
+
+- name: Make sure composer authentication is present
+  command: "composer config -g {{ item.type }}.{{ item.hostname }} {{ item.username }} {{ item.password }}"
+  with_items: php['composer']['auth']
+  when: php['composer']['auth'] is defined
+  changed_when: False
