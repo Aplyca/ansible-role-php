@@ -6,7 +6,7 @@
     state: present
     update_cache: yes
     cache_valid_time: 86400
-  with_dict: php_modules
+  with_dict: php["modules"]
   notify: reload webserver
 
 - include: setup.yml
@@ -15,7 +15,7 @@
   sudo: yes
   command: "php5enmod {{ item.value }}"
   changed_when: False
-  with_dict: php_modules
+  with_dict: php["modules"]
   when: ansible_distribution == "Ubuntu" and ansible_distribution_version | version_compare('14.04', 'ge')
 
 - name: Enabling custom config in PHP conf

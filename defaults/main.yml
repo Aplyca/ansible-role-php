@@ -1,8 +1,8 @@
 ---
 php_package: php5
-php_modules:
-    0: cli
 php:
+  modules:
+    0: cli
   expose_php: 'On'
   max_execution_time: '30'
   max_input_time: '60'

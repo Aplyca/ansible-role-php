@@ -12,7 +12,7 @@
   yum:
     name: "{{ php_package }}-{{ item.value }}"
     state: present
-  with_dict: php_modules
+  with_dict: php["modules"]
   notify: reload webserver
   
 - include: setup.yml  
