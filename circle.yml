@@ -15,7 +15,7 @@ machine:
 
 test:
   pre:
-    - sudo ln -s ansible-role-php ../../mauricios.PHP
+    - sudo ln -s ansible-role-php ../../aplyca.PHP
     - ansible --version
   override:
     - ansible-playbook $PLAYBOOK --syntax-check
