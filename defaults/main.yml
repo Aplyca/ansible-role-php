@@ -3,19 +3,6 @@ php_package: php5
 php:
   modules:
     0: cli
-  expose_php: 'On'
-  max_execution_time: '30'
-  max_input_time: '60'
-  memory_limit: '128M'
-  error_reporting: 'E_ALL & ~E_DEPRECATED & ~E_STRICT'
-  display_errors: 'Off'
-  display_startup_errors: 'Off'
-  track_errors: 'Off'
-  variables_order: 'GPCS'
-  post_max_size: '8M'
-  upload_max_filesize: '2M'
-  Date:
-    timezone: 'America/New_York'
   composer:
-    present: True
+    present: False
     auth: []
