@@ -18,8 +18,8 @@ test:
     - sudo ln -s ansible-role-php ../../aplyca.PHP
     - ansible --version
   override:
-    - ansible-playbook $PLAYBOOK --syntax-check
-    - ansible-playbook $PLAYBOOK --connection=local
-    - "ansible-playbook $PLAYBOOK --connection=local | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
+    - ansible-playbook $PLAYBOOK --extra-vars '@test.yml' --syntax-check
+    - ansible-playbook $PLAYBOOK --extra-vars '@test.yml' --connection=local
+    - "ansible-playbook $PLAYBOOK --extra-vars '@test.yml' --connection=local | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
     - "php -v"
     - "composer -v"
