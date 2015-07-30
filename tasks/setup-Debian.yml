@@ -1,4 +1,9 @@
 ---
+- name: Adding PPA repo for php 5.6
+  sudo: yes
+  apt_repository:
+    repo: 'ppa:ondrej/php5-5.6'
+
 - name: Ensure PHP modules are present using apt
   sudo: yes
   apt:
