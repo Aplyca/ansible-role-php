@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/Aplyca/ansible-role-php.svg?branch=master)](https://travis-ci.org/Aplyca/ansible-role-php)
 [![Circle CI](https://circleci.com/gh/Aplyca/ansible-role-php/tree/master.png?style=badge)](https://circleci.com/gh/Aplyca/ansible-role-php/tree/master)
 
-Ansible Role that installs an configure PHP 5.x on Debian/Ubuntu.
+Ansible Role that installs and configure PHP 5.x on Debian/Ubuntu.
 
 ## Requirements
 
@@ -22,6 +22,14 @@ You can add this role as a dependency for other roles, add the role to the meta/
 dependencies:
   - { role: aplyca.PHP }
 ```
+## Features
+
+* PHP 5.6
+* Install modules
+* Composer
+* OPCache
+* Configure all PHP core and extensions settings
+* Apache integration
 
 ## Role Variables
 
@@ -37,7 +45,6 @@ Use Vagrant to test the role:
 
 ```bash
 cd tests;
-vagrant box add ubuntu/trusty64;
 vagrant up;
 ```
 
