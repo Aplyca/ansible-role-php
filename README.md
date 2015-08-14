@@ -1,7 +1,7 @@
 # Ansible Role: PHP 5.x
 
 [![Build Status](https://travis-ci.org/Aplyca/ansible-role-php.svg?branch=master)](https://travis-ci.org/Aplyca/ansible-role-php)
-[![Circle CI](https://circleci.com/gh/Aplyca/ansible-role-php/tree/master.png?style=badge)](https://circleci.com/gh/Aplyca/ansible-role-php/tree/master)
+[![Circle CI](https://circleci.com/gh/Aplyca/ansible-role-php.svg?style=svg)](https://circleci.com/gh/Aplyca/ansible-role-php)
 
 Ansible Role that installs and configure PHP 5.x on Debian/Ubuntu.
 
