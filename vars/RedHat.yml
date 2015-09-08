@@ -1,10 +1,10 @@
 ---
 php:
+  package: php55w
   modules:
     0: cli
     1: opcache
+  conf_dir: /etc/php.d    
 php_repos:
     - https://mirror.webtatic.com/yum/el7/epel-release.rpm
     - https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-php_conf_dir: /etc/php.d
-php_package: php55w

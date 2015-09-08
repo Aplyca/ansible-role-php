@@ -10,7 +10,7 @@
 - name: Ensure PHP modules are present using yum
   sudo: yes
   yum:
-    name: "{{ php_package }}-{{ item.value }}"
+    name: "{{ php['package'] }}-{{ item.value }}"
     state: present
   with_dict: php["modules"]
   notify: reload webserver

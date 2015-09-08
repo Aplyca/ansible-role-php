@@ -1,4 +1,8 @@
 ---
 - hosts: all
-  roles:
-    - aplyca.PHP
+  tasks:
+    - name: Test if PHP is installed
+      sudo: yes
+      shell: "php -v"
+      register: result
+      failed_when: "'The PHP Group' not in result.stdout"  

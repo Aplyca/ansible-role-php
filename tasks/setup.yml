@@ -2,6 +2,6 @@
 - name: Add custom PHP ini
   sudo: yes
   template:
-    src: "etc/php5/mods-available/custom.ini.j2"
-    dest: "{{ php_conf_dir }}/custom.ini"
+    src: "custom.ini.j2"
+    dest: "{{ php['conf_dir'] }}/custom.ini"
   notify: reload webserver
