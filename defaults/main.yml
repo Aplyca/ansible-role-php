@@ -1,8 +1,8 @@
 ---
 php:
-  package: php5
-  modules:
-    0: cli
-  composer:
-    present: True
-    auth: []
+    package: php5
+    modules:
+      - cli
+    composer:
+        present: True
+        auth: []
