@@ -1,6 +1,6 @@
 ---
 - name: Ensure PHP packages repos are present using yum
-  sudo: yes
+  become: yes
   yum:
     name: "{{ item }}"
     state: present
@@ -8,7 +8,7 @@
   when: php_repos is defined
 
 - name: Ensure PHP modules are present using yum
-  sudo: yes
+  become: yes
   yum:
     name: "{{ php['package'] }}-{{ item }}"
     state: present

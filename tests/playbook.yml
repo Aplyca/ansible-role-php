@@ -2,7 +2,7 @@
 - hosts: all
   tasks:
     - name: Test if PHP is installed
-      sudo: yes
+      become: yes
       shell: "php -v"
       register: result
       failed_when: "'The PHP Group' not in result.stdout"  

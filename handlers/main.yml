@@ -1,6 +1,6 @@
 ---
 - name: reload webserver
-  sudo: yes
+  become: yes
   service:
     name: "{{ apache['service'] }}"
     state: reloaded

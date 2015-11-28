@@ -12,7 +12,7 @@
     creates: composer.phar
 
 - name: Make sure Composer is installed globally
-  sudo: yes
+  become: yes
   command: cp composer.phar /usr/bin/composer
   args:
     chdir: "{{ ansible_env['HOME'] }}"
