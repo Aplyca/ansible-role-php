@@ -4,5 +4,5 @@ php:
     modules:
       - cli
     composer:
-        present: True
-        auth: []
+      present: True
+      auth: []
