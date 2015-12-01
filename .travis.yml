@@ -4,7 +4,7 @@ python: "2.7"
 
 before_install:
   - sudo apt-get update -qq
-  - ln -s ansible-role-apache ../aplyca.PHP
+  - ln -s ansible-role-php ../aplyca.PHP
 
 install:
   # Install Ansible.
