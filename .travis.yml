@@ -2,35 +2,16 @@
 language: python
 python: "2.7"
 
-env:
-  - PLAYBOOK=playbook.yml
-
 before_install:
-  - ln -s ansible-role-php ../aplyca.PHP
+  - sudo apt-get update -qq
+  - ln -s ansible-role-apache ../aplyca.PHP
 
 install:
   # Install Ansible.
-  - pip install ansible
+  - sudo pip install -r build/requirements.txt
 
 script:
-  - "cd tests"
-  # Check the role/playbook's syntax.
-  - "ansible-playbook $PLAYBOOK --extra-vars '@test.yml' --syntax-check"
+  - tests/tests.sh
 
-  # Run the role/playbook with ansible-playbook.
-  - "ansible-playbook $PLAYBOOK --connection=local --extra-vars '@test.yml'"
-
-  # Run the role/playbook again, checking to make sure it's idempotent.
-  - >
-    ansible-playbook $PLAYBOOK --connection=local --extra-vars '@test.yml'
-    | grep -q 'changed=0.*failed=0'
-    && (echo 'Idempotence test: pass' && exit 0)
-    || (echo 'Idempotence test: fail' && exit 1)
-
-  # Request a page via Apache, to make sure Apache is running and responds.
-  - "php -v"
-  - "composer -v"
-
-
-notification:
+notifications:
   email: false

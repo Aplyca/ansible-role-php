@@ -2,7 +2,10 @@
 - hosts: all
   tasks:
     - name: Test if PHP is installed
-      become: yes
       shell: "php -v"
       register: result
-      failed_when: "'The PHP Group' not in result.stdout"  
+      failed_when: "'The PHP Group' not in result.stdout"
+    - name: Test if Composer is installed
+      shell: "composer --version"
+      register: result
+      failed_when: "'Composer version' not in result.stdout"

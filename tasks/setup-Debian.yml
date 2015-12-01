@@ -1,7 +1,4 @@
 ---
-- debug: var=php
-  tags: vars
-
 - name: Adding PPA repo for php 5.6
   become: yes
   apt_repository:

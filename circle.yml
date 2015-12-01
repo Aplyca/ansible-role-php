@@ -1,25 +1,9 @@
-general:
-  build_dir: tests
-
 dependencies:
   pre:
-    - sudo pip install paramiko PyYAML jinja2 httplib2
-    - sudo pip install ansible
-
-machine:
-  environment:
-    PLAYBOOK: playbook.yml
-  pre:
-    - uname -a
-    - cat /proc/version
+    - sudo pip install -r build/requirements.txt
 
 test:
   pre:
     - sudo ln -s ansible-role-php ../../aplyca.PHP
-    - ansible --version
   override:
-    - ansible-playbook $PLAYBOOK --extra-vars '@test.yml' --syntax-check
-    - ansible-playbook $PLAYBOOK --extra-vars '@test.yml' --connection=local
-    - "ansible-playbook $PLAYBOOK --extra-vars '@test.yml' --connection=local | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
-    - "php -v"
-    - "composer -v"
+    - tests/tests.sh
