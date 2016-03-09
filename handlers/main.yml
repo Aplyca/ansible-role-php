@@ -2,6 +2,6 @@
 - name: reload webserver
   become: yes
   service:
-    name: "{{ apache['service'] }}"
+    name: "{{ apache.service }}"
     state: reloaded
-  when: apache['service'] is defined
+  when: apache.service is defined
