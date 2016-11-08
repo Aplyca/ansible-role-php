@@ -4,6 +4,7 @@ php:
     conf_dir: /etc/php/5.6/mods-available
     modules:
       - cli
+      - mbstring
     composer:
       present: True
       auth: []
