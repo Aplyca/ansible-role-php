@@ -8,7 +8,9 @@
       shell: "php -v"
       register: result
       failed_when: "'The PHP Group' not in result.stdout"
+      changed_when: False
     - name: Test if Composer is installed
       shell: "composer --version"
       register: result
       failed_when: "'Composer version' not in result.stdout"
+      changed_when: False
