@@ -1,6 +1,9 @@
 ---
-- hosts: all
-  tasks:
+- name: Provision PHP
+  hosts: all
+  roles:
+    - { role: Aplyca.PHP, tags: ["php"] }
+  post_tasks:
     - name: Test if PHP is installed
       shell: "php -v"
       register: result

@@ -1,8 +1,15 @@
 ---
-- name: Adding PPA repo for php 5.6
+- name: Ensure language pack is installed
+  become: yes
+  apt:
+    name: "language-pack-en-base"
+
+- name: Adding PPA repo for PHP
   become: yes
   apt_repository:
-    repo: 'ppa:ondrej/php5-5.6'
+    repo: 'ppa:ondrej/php'
+  environment:
+      LC_ALL: "C.UTF-8"
 
 - name: Ensure PHP modules are present using apt
   become: yes
@@ -16,16 +23,9 @@
 
 - include: setup.yml
 
-- name: Make PHP modules are enabled
-  become: yes
-  command: "php5enmod {{ item }}"
-  changed_when: False
-  with_items: "{{ php.modules }}"
-  when: ansible_distribution == "Ubuntu" and ansible_distribution_version | version_compare('14.04', 'ge')
-
 - name: Enabling custom config in PHP conf
   become: yes
-  command: php5enmod custom
+  command: phpenmod custom
   changed_when: False
   when: ansible_distribution == "Ubuntu" and ansible_distribution_version | version_compare('14.04', 'ge')
 

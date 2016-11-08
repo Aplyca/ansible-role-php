@@ -1,4 +1,0 @@
----
-php:
-  package: php5
-  conf_dir: /etc/php5/cli/conf.d

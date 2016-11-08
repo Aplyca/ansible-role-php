@@ -1,2 +1,5 @@
 .vagrant
-custom.yml
+custom
+.vault
+*.retry
+**/roles

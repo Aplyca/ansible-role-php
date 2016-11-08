@@ -10,7 +10,7 @@
 - name: Ensure PHP modules are present using yum
   become: yes
   yum:
-    name: "{{ php['package'] }}-{{ item.1 }}"
+    name: "{{ php.package }}-{{ item.1 }}"
     state: present
   with_indexed_items: "{{ php.modules }}"
   notify: reload webserver

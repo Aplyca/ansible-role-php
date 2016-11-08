@@ -1,6 +1,0 @@
----
-php:
-  modules:
-    - intl
-  Date:
-   timezone: "America/New_York"

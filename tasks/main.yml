@@ -13,7 +13,7 @@
   when: ansible_os_family == 'RedHat'
 
 - include: setup-Debian.yml
-  when: ansible_os_family == 'Debian' 
+  when: ansible_os_family == 'Debian'
 
 - include: setup-Composer.yml
-  when: php['composer']['present']
+  when: php.composer.present
