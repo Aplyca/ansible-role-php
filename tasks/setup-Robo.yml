@@ -1,0 +1,7 @@
+---
+- name: Install Robo
+  become: yes
+  get_url:
+    url: http://robo.li/robo.phar
+    dest: "/usr/bin/robo"
+    mode: 0755

@@ -8,3 +8,6 @@ php:
     composer:
       present: True
       auth: []
+    robo:
+      present: True
+      version: latest

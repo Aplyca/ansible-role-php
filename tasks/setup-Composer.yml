@@ -24,3 +24,7 @@
   when: php.composer.auth is defined
   changed_when: False
   no_log: True
+
+- name: upgrade Composer to latest
+  become: yes
+  command: composer self-update
