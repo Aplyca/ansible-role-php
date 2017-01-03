@@ -5,3 +5,4 @@
     src: "custom.ini.j2"
     dest: "{{ php.conf_dir }}/custom.ini"
   notify: reload webserver
+  tags: php-ini

@@ -13,6 +13,7 @@
 
 - include: setup-Composer.yml
   when: php.composer.present
+  tags: composer
 
 - include: setup-Robo.yml
   when: php.robo.present
