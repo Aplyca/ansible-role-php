@@ -2,9 +2,6 @@
 - debug: var=php verbosity=1
   tags: vars
 
-- name: Include OS-specific variables.
-  include_vars: "{{ ansible_os_family }}.yml"
-
 - include: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
 

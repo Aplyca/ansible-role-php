@@ -1,10 +1,10 @@
 ---
 php:
-    package: php5.6
-    conf_dir: /etc/php/5.6/mods-available
+    version: 5.6
     modules:
       - cli
       - mbstring
+    config: []
     composer:
       present: True
       auth: []

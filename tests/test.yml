@@ -3,5 +3,28 @@ php:
   modules:
     - cli
     - intl
-  Date:
-   timezone: "America/New_York"
+  config:
+    - name: ALL
+      ini:
+        variables_order: 'EGPCS'
+        Date:
+         timezone: "America/New_York"
+        opcache:
+          max_accelerated_files: 10000
+          memory_consumption: 512
+          enable_file_override: 1
+          interned_strings_buffer: 16
+          revalidate_path: 1
+          revalidate_freq: 0
+    - name: apache2
+      ini:
+        memory_limit: '512M'
+        opcache:
+          memory_consumption: 512
+          enable_file_override: 1
+    - name: cli
+      ini:
+        realpath_cache_ttl: 86400
+        opcache:
+          memory_consumption: 512
+          enable_file_override: 0

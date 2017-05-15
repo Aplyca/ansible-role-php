@@ -14,7 +14,7 @@
 - name: Ensure PHP modules are present using apt
   become: yes
   apt:
-    name: "{{ php.package }}-{{ item.1 }}"
+    name: "php{{ php.version }}-{{ item.1 }}"
     state: present
     update_cache: yes
     cache_valid_time: 86400
@@ -25,7 +25,10 @@
 
 - name: Enabling custom config in PHP conf
   become: yes
-  command: phpenmod custom
+  command: "phpenmod -v {{ php.version }} -s {{ item.name }} {{ item.name }}"
+  notify: reload webserver
+  with_items: "{{ php.config }}"
+  tags: php-ini
   changed_when: False
 
 #TODO: set read permissions to session path

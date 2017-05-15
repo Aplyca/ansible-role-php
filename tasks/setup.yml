@@ -2,7 +2,8 @@
 - name: Add custom PHP ini
   become: yes
   template:
-    src: "custom.ini.j2"
-    dest: "{{ php.conf_dir }}/custom.ini"
+    src: "config.ini.j2"
+    dest: "/etc/php/{{ php.version }}/mods-available/{{ item.name }}.ini"
   notify: reload webserver
+  with_items: "{{ php.config }}"
   tags: php-ini
