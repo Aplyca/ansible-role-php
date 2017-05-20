@@ -21,6 +21,16 @@
   with_indexed_items: "{{ php.modules }}"
   notify: reload webserver
 
+- name: Ensure PHP modules are present using apt
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 86400
+  with_items: "{{ php.packages }}"
+  notify: reload webserver
+
 - include: setup.yml
 
 - name: Enabling custom config in PHP conf
