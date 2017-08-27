@@ -4,6 +4,7 @@
     url: https://getcomposer.org/installer
     dest: "~/composer_installer.php"
     mode: 0755
+    validate_certs: no  
 
 - name: Make sure Composer is installed
   command: "php composer_installer.php"

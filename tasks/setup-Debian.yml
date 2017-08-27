@@ -8,6 +8,7 @@
   become: yes
   apt_repository:
     repo: 'ppa:ondrej/php'
+    validate_certs: no
   environment:
       LC_ALL: "C.UTF-8"
 
@@ -31,7 +32,7 @@
   with_items: "{{ php.packages }}"
   notify: reload webserver
 
-- include: setup.yml
+- include_tasks: setup.yml
 
 - name: Enabling custom config in PHP conf
   become: yes

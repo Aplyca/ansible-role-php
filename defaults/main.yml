@@ -1,14 +1,15 @@
 ---
 php:
-    version: 5.6
-    modules:
-      - cli
-      - mbstring
-    config: []
-    composer:
-      present: True
-      auth: []
-    robo:
-      present: True
-      version: latest
-    packages: []
+  version: 5.6
+  modules:
+    - cli
+    - mbstring
+  config: []
+  composer:
+    present: True
+    auth: []
+  robo:
+    present: True
+    version: latest
+  packages: []
+  server: False
