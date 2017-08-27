@@ -3,7 +3,8 @@
   become: yes
   template:
     src: "config.ini.j2"
-    dest: "/etc/php/{{ php.version }}/mods-available/{{ item.name }}.ini"
-  notify: reload webserver
-  with_items: "{{ php.config }}"
+    dest: "/etc/php/{{ php.version }}/mods-available/{{ item.key }}.ini"
+  notify: reload phpserver
+  with_dict: "{{ php.ini | default({}) }}"
+  when: php.ini | length > 0
   tags: php-ini

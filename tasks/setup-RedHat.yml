@@ -13,6 +13,6 @@
     name: "{{ php.package }}-{{ item.1 }}"
     state: present
   with_indexed_items: "{{ php.modules }}"
-  notify: reload webserver
+  notify: reload phpserver
 
-- include_tasks: setup.yml
+- include: setup.yml

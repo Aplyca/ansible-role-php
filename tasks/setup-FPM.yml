@@ -1,0 +1,20 @@
+---
+- name: Make sure default FPM pool is preserved as example
+  become: yes
+  command: "mv www.conf www.conf.example"
+  args:
+    chdir: "/etc/php/{{ php.version }}/fpm/pool.d"
+    creates: www.conf.example
+  notify: reload phpserver
+  when: php.fpm.www is defined
+  tags: php-fpm
+
+- name: Make sure FPM settings are present
+  become: yes
+  template:
+    src: "fpm.conf.j2"
+    dest: "/etc/php/{{ php.version }}/fpm/pool.d/{{ item.key }}.conf"
+  with_dict: "{{ php.fpm | default({}) }}"
+  notify: reload phpserver
+  when: php.fpm | length > 0
+  tags: php-fpm

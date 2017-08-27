@@ -20,7 +20,7 @@
     update_cache: yes
     cache_valid_time: 86400
   with_indexed_items: "{{ php.modules }}"
-  notify: reload webserver
+  notify: reload phpserver
 
 - name: Ensure PHP modules are present using apt
   become: yes
@@ -30,16 +30,19 @@
     update_cache: yes
     cache_valid_time: 86400
   with_items: "{{ php.packages }}"
-  notify: reload webserver
+  notify: reload phpserver
 
-- include_tasks: setup.yml
+- name: Include setup INI settings
+  include: setup.yml
 
 - name: Enabling custom config in PHP conf
   become: yes
-  command: "phpenmod -v {{ php.version }} -s {{ item.name }} {{ item.name }}"
-  notify: reload webserver
-  with_items: "{{ php.config }}"
+  command: "phpenmod -v {{ php.version }} -s {{ item.key }} {{ item.key }}"
+  notify: reload phpserver
+  with_dict: "{{ php.ini | default({}) }}"
+  when: php.ini | length > 0
   tags: php-ini
-  changed_when: False
+
+
 
 #TODO: set read permissions to session path

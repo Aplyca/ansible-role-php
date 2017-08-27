@@ -1,0 +1,4 @@
+[{{ item.key }}]
+{% for directive, value in item.value|dictsort(true) %}
+{{ directive }}={{ value }}
+{% endfor %}

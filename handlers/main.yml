@@ -1,7 +1,7 @@
 ---
-- name: reload webserver
+- name: reload phpserver
   become: yes
   service:
     name: "{{ php.server }}"
     state: reloaded
-  when: php.server
+  when: php.server and ansible_connection != 'docker'

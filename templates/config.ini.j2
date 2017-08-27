@@ -1,10 +1,10 @@
 #jinja2: lstrip_blocks: True
 ; {{ ansible_managed }}
 
-; configuration for php {{ item.name }} module settings
-; priority={% if item.name == "ALL" %}8{% else %}9{% endif %}0
+; configuration for php {{ item.key }} module settings
+; priority={% if item.key == "ALL" %}8{% else %}9{% endif %}0
 
-{% for directive, value in item.ini|dictsort(true) %}
+{% for directive, value in item.value|dictsort(true) %}
     {% if value is string or value is number %}
 {{ directive }} = {{ value }}
     {% elif value is iterable %}
