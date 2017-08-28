@@ -18,3 +18,10 @@
   notify: reload phpserver
   when: php.fpm | length > 0
   tags: php-fpm
+
+- name: Create Docker entrypoint
+  become: yes
+  copy:
+    src: docker-entrypoint
+    dest: /usr/local/bin/docker-entrypoint
+    mode: 0755
