@@ -8,9 +8,7 @@ php:
   composer:
     present: True
     auth: []
-  robo:
-    present: True
-    version: latest
+  robo: False
   packages: []
   server: False
   fpm: {}

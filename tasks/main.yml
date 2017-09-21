@@ -16,4 +16,4 @@
   tags: composer
 
 - include: setup-Robo.yml
-  when: php.robo.present
+  when: php.robo

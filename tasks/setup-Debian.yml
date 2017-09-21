@@ -22,7 +22,7 @@
   with_indexed_items: "{{ php.modules }}"
   notify: reload phpserver
 
-- name: Ensure PHP modules are present using apt
+- name: Ensure packages are present using apt
   become: yes
   apt:
     name: "{{ item }}"
@@ -42,7 +42,5 @@
   with_dict: "{{ php.ini | default({}) }}"
   when: php.ini | length > 0
   tags: php-ini
-
-
 
 #TODO: set read permissions to session path
