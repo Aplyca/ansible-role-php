@@ -3,6 +3,7 @@
   become: yes
   apt:
     name: "language-pack-en-base"
+    install_recommends: no
 
 - name: Adding PPA repo for PHP
   become: yes
@@ -19,6 +20,7 @@
     state: present
     update_cache: yes
     cache_valid_time: 86400
+    install_recommends: no
   with_indexed_items: "{{ php.modules }}"
   notify: reload phpserver
 
@@ -29,6 +31,7 @@
     state: present
     update_cache: yes
     cache_valid_time: 86400
+    install_recommends: no
   with_items: "{{ php.packages }}"
   notify: reload phpserver
 
