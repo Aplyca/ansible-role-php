@@ -1,0 +1,19 @@
+---
+
+- name: Ensure PHP modules are present using apk
+  become: yes
+  apk:
+    name: "php{{ php.version }}-{{ item.1 }}"
+    state: present
+    update_cache: yes
+  with_indexed_items: "{{ php.modules }}"
+  notify: reload phpserver
+
+- name: Ensure packages are present using apt
+  become: yes
+  apk:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items: "{{ php.packages }}"
+  notify: reload phpserver

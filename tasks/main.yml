@@ -2,6 +2,9 @@
 - debug: var=php verbosity=1
   tags: vars
 
+- include: setup-Alpine.yml
+  when: ansible_os_family == 'Alpine'
+
 - include: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
 
