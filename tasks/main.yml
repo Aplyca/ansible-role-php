@@ -11,8 +11,8 @@
 - include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
-- include_tasks: Include setup FPM
-  include: setup-FPM.yml
+- name: Include setup FPM
+  include_tasks: setup-FPM.yml
 
 - include_tasks: setup-Composer.yml
   when: php.composer.present

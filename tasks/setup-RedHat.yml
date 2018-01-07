@@ -15,4 +15,4 @@
   with_indexed_items: "{{ php.modules }}"
   notify: reload phpserver
 
-- include: setup.yml
+- include_tasks: setup.yml

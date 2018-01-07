@@ -36,7 +36,7 @@
   notify: reload phpserver
 
 - name: Include setup INI settings
-  include: setup.yml
+  include_tasks: setup.yml
 
 - name: Enabling custom config in PHP conf
   become: yes
