@@ -2,21 +2,21 @@
 - debug: var=php verbosity=1
   tags: vars
 
-- include: setup-Alpine.yml
+- include_tasks: setup-Alpine.yml
   when: ansible_os_family == 'Alpine'
 
-- include: setup-RedHat.yml
+- include_tasks: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
 
-- include: setup-Debian.yml
+- include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
-- name: Include setup FPM
+- include_tasks: Include setup FPM
   include: setup-FPM.yml
 
-- include: setup-Composer.yml
+- include_tasks: setup-Composer.yml
   when: php.composer.present
   tags: composer
 
-- include: setup-Robo.yml
+- include_tasks: setup-Robo.yml
   when: php.robo
